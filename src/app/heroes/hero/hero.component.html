@@ -1,0 +1,32 @@
+<h1>{{ nombre }}</h1>
+
+<dl>
+  <td>Nombre:</td>
+  <dd>{{ nombre }}</dd>
+
+  <td>Edad:</td>
+  <dd>{{ edad }}</dd>
+
+  <td>Metedo:</td>
+  <dd>{{ getHeroDescription() }}</dd>
+
+  <td>Capitalizado:</td>
+  <dd>{{ capitalizedName }}</dd>
+</dl>
+
+<!-- Es una condicion ngIf -->
+<!-- !== que sea diferente a esto -->
+<!-- Esto seria el verdadero la condicion -->
+<button
+  *ngIf="nombre !== 'Spiderman'"
+  (click)="changeHero()"
+  class="btn btn-primary mx-2"
+>
+  Cambiar nombre
+</button>
+
+<button *ngIf="edad !== 24" (click)="changeAge()" class="btn btn-primary mx-2">
+  Cambiar edad
+</button>
+
+<button (click)="reset()" class="btn btn-danger mx-2">Reset</button>

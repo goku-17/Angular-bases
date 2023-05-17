@@ -1,0 +1,27 @@
+<h3>Listado de Héroes</h3>
+<!-- div es un agrupador en html  que puede destruir mi estructur html de mi estilo de la pagina -->
+<div *ngIf="deletedHero; else nadaeliminado">
+  <h3>
+    Héroe borrado <small class="text-danger">{{ deletedHero }}</small>
+  </h3>
+</div>
+<!-- ng-template es como un div que no existe pero no se construye solo ejecuta lo que esta adentro mostrar su contenido -->
+<!-- referencia local # -->
+
+<ng-template #nadaeliminado>
+  <h3>No ha borrado nada.</h3>
+</ng-template>
+
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="removeLastHero()"
+  class="btn btn-outline-danger"
+>
+  Borrar ultimo héroe
+</button>
+<!-- Clase de boostrap -->
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroNames" class="list-group-item">
+    {{ name }}
+  </li>
+</ul>
